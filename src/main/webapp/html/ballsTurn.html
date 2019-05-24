@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Balls Turn</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="../javascript/jquery/jquery.mobile-1.4.0.min.js"></script>
+	<script src="../javascript/tennisStore.js"></script>
+	<script src="../javascript/jquery/jquery.validate.js"></script>
+</head>
+<script type="text/javascript">
+	function changeImage(){
+		var $groupName=$("#groupName").val();
+		//alert('selected group is:'+$groupName);
+		$("#image").hide();
+		var swapUrl;
+		if ($groupName == 'GroupA'){
+			swapUrl = "../images/GroupABallsTurn.jpg";
+		} else if ($groupName == 'GroupB'){
+			swapUrl = "../images/GroupBBallsTurn.jpg";
+		} else if ($groupName == 'GroupC'){
+			swapUrl = "../images/GroupCBallsTurn.jpg";
+		} else if ($groupName == 'GroupD'){
+			swapUrl = "../images/GroupDBallsTurn.jpg";
+		} else if ($groupName == 'GroupE'){
+			swapUrl = "../images/GroupEBallsTurn.jpg";
+		} else if ($groupName == 'GroupF'){
+			swapUrl = "../images/GroupFBallsTurn.jpg";
+		} else if ($groupName == 'GroupG'){
+			swapUrl = "../images/GroupGBallsTurn.jpg";
+		} else if ($groupName == 'GroupH'){
+			swapUrl = "../images/GroupHBallsTurn.jpg";
+		} else if ($groupName == 'Red'){
+			swapUrl = "../images/RedGroup.jpg";
+		} else if ($groupName == 'Blue'){
+			swapUrl = "../images/BlueGroup.jpg";
+		} else if ($groupName == 'Green'){
+			swapUrl = "../images/GreenGroup.jpg";
+		} else if ($groupName == 'Yellow'){
+			swapUrl = "../images/YellowGroup.jpg";
+		}
+		$("#image").attr("src",swapUrl);
+		$("#image").fadeIn(1500);
+
+	}
+</script>
+<body>
+	<div>
+		<div data-role="page" data-content-theme="a" id="ballsTurnInfo" data-title="Balls Turn info for Team Tennis 2015">
+			<div data-role="header" data-content-theme="a" data-add-back-btn="true">
+				<a href="/index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+				<h6>Balls Turn Round</h6>
+			</div>
+			<div data-role="content">
+				 <label for="select-choice-0" class="select">Select Group:</label>
+				<p> Please use this page to identify who should bring balls for a match.</p>
+				<select name="groupName" id="groupName" onchange="changeImage()">
+					<option value="Red" selected>Red</option>
+					<option value="Blue">Blue</option>
+					<option value="Green">Green</option>
+					<option value="Yellow">Yellow</option>
+        			<!-- <option value="GroupA" selected>Group A</option>
+        			<option value="GroupB">Group B</option>
+        			<option value="GroupC">Group C</option>
+        			<option value="GroupD">Group D</option>
+        			<option value="GroupE">Group E</option>
+        			<option value="GroupF">Group F</option>
+        			<option value="GroupG">Group G</option>
+        			<option value="GroupH">Group H</option> -->
+				</select>
+				<!-- <img id="image" src="../images/GroupABallsTurn.jpg"  width="100%" alt="Balls Turn"> -->
+				<img id="image" src="../images/RedGroup.jpg"  width="100%" alt="Balls Turn">
+				<!-- <img id="image" src="../images/TeamTennis.jpg"  width="100%" alt="Balls Turn"> -->
+			</div>
+			<div data-role="footer">
+				<span style="text-align:left;font-style:italic;font-size:12px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2018/singles-tournament/balls-turn">Desktop version</a></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

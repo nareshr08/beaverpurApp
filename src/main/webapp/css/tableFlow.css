@@ -1,0 +1,109 @@
+.table-stroke thead th {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.table-stroke tbody th,.table-stroke tbody td {
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+/* Add alternating row stripes */
+.table-stripe tbody tr:nth-child(odd) td,.table-stripe tbody tr:nth-child(odd) th
+	{
+	background-color: rgba(0, 0, 0, 0.04);
+}
+/* Add stroke to the header and last item */
+.table-stripe thead th,.table-stripe tbody tr:last-child {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+/* preset breakpoint to switch to stacked grid styles below 35em (560px) */
+@media ( max-width : 35em) {
+	.ui-responsive>.ui-block-a,.ui-responsive>.ui-block-b,.ui-responsive>.ui-block-c,.ui-responsive>.ui-block-d,.ui-responsive>.ui-block-e
+		{
+		width: 100%;
+		float: none;
+	}
+}
+
+/* Preset breakpoints if ".ui-responsive" class added to table */
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-1,.ui-table-columntoggle.ui-responsive td.ui-table-priority-1
+		{
+		display: table-cell;
+	}
+}
+/* Show priority 2 at 480px (30em x 16px) */
+@media screen and (min-width: 30em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-2,.ui-table-columntoggle.ui-responsive td.ui-table-priority-2
+		{
+		display: table-cell;
+	}
+}
+/* Show priority 3 at 640px (40em x 16px) */
+@media screen and (min-width: 40em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-3,.ui-table-columntoggle.ui-responsive td.ui-table-priority-3
+		{
+		display: table-cell;
+	}
+}
+/* Show priority 4 at 800px (50em x 16px) */
+@media screen and (min-width: 50em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-4,.ui-table-columntoggle.ui-responsive td.ui-table-priority-4
+		{
+		display: table-cell;
+	}
+}
+/* Show priority 5 at 960px (60em x 16px) */
+@media screen and (min-width: 60em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-5,.ui-table-columntoggle.ui-responsive td.ui-table-priority-5
+		{
+		display: table-cell;
+	}
+}
+/* Show priority 6 at 1,120px (70em x 16px) */
+@media screen and (min-width: 70em) {
+	.ui-table-columntoggle.ui-responsive th.ui-table-priority-6,.ui-table-columntoggle.ui-responsive td.ui-table-priority-6
+		{
+		display: table-cell;
+	}
+}
+/* Unchecked manually: Always hide */
+.ui-table-columntoggle th.ui-table-cell-hidden,.ui-table-columntoggle td.ui-table-cell-hidden,.ui-table-columntoggle.ui-responsive th.ui-table-cell-hidden,.ui-table-columntoggle.ui-responsive td.ui-table-cell-hidden
+	{
+	display: none;
+}
+/* Checked manually: Always show */
+.ui-table-columntoggle th.ui-table-cell-visible,.ui-table-columntoggle td.ui-table-cell-visible,.ui-table-columntoggle.ui-responsive th.ui-table-cell-visible,.ui-table-columntoggle.ui-responsive td.ui-table-cell-visible
+	{
+	display: table-cell;
+}
+/* Breakpoint to show as a standard table at 560px (35em x 16px) or wider */
+@media ( min-width : 35em ) {
+	/* Fixes table rendering when switching between breakpoints in Safari <= 5. See https://github.com/jquery/jquery-mobile/issues/5380 */
+	.ui-table-reflow.ui-responsive {
+		display: table-row-group;
+	}
+	/* Show the table header rows */
+	.ui-table-reflow.ui-responsive td,.ui-table-reflow.ui-responsive th,.ui-table-reflow.ui-responsive tbody th,.ui-table-reflow.ui-responsive tbody td,.ui-table-reflow.ui-responsive thead td,.ui-table-reflow.ui-responsive thead th
+		{
+		display: table-cell;
+		margin: 0;
+	}
+	/* Hide the labels in each cell */
+	.ui-table-reflow.ui-responsive td .ui-table-cell-label,.ui-table-reflow.ui-responsive th .ui-table-cell-label
+		{
+		display: none;
+	}
+}
+/* Hack to make IE9 and WP7.5 treat cells like block level elements, scoped to ui-responsive class */
+/* Applied in a max-width media query up to the table layout breakpoint so we don't need to negate this*/
+@media ( max-width : 35em ) {
+	.ui-table-reflow.ui-responsive td,.ui-table-reflow.ui-responsive th {
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		float: left;
+		clear: left;
+	}
+}

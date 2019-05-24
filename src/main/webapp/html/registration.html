@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Details</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="../javascript/jquery/jquery-1.9.1.min.js"></script>
+	<script src="../javascript/jquery/jquery.mobile-1.3.2.min.js"></script>
+	<script src="../javascript/tennisStore.js"></script>
+	<script src="../javascript/jquery/jquery.validate.js"></script>
+	<style>
+	label.error { 
+		float: left; 
+		color: red; 
+		padding-top: .5em; 
+		vertical-align: top; 
+		font-weight:bold
+	}
+	</style>
+</head>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#registrationForm").validate();
+	});
+</script>
+<body>
+	<div>
+		<div data-role="page" data-content-theme="b" id="singlesRegistration" data-title="Registrations for Season 2014">
+			<div data-role="header" data-content-theme="b"
+				data-add-back-btn="true">
+				<a href="#" data-rel="back" data-icon="arrow-l" data-theme="c">Back</a>
+				<h6 style="font-size:15px;">Registration Form</h6>
+			</div>
+			<div data-role="content">
+				<form action="/registration" id="registrationForm" method="post">
+					<fieldset data-role="fieldcontain">
+						<label for="playerFirstName">First Name:</label>
+						<input type="text" name="playerFirstName" id="playerFirstName" class="required" value=""/>
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<label for="playerLastName">Last Name:</label>
+						<input type="text" name="playerLastName" id="playerLastName" class="required" value=""/>
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<label for="emailAddress">Email Address:</label>
+						<input type="email" name="emailAddress" placeholder="example@company.com" class="required email" id="emailAddress" value=""/>
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<label for="phoneNumber">Phone Number:</label>
+						<input type="number" name="phoneNumber" required="required" placeholder="5555555555" id="phoneNumber" class="required" value=""/>
+					</fieldset>
+						<input type="submit" data-theme="b" name="submit" value="Next">
+						<span>*Payment option will be provided in next screen</span>
+				</form>
+			</div>
+			<div data-role="footer"></div>		
+		</div>
+	</div>
+</body>
+</html>

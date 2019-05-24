@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Details</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="../javascript/jquery/jquery-1.10.2.min.js"></script>
+	<script src="../javascript/jquery/jquery.mobile-1.4.0.min.js"></script>
+	<script src="../javascript/tennisStore.js"></script>
+	<script src="../javascript/jquery/jquery.validate.js"></script>
+	<style>
+	label.error { 
+		float: left; 
+		color: red; 
+		padding-top: .5em; 
+		vertical-align: top; 
+		font-weight:bold
+	}
+	</style>
+</head>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#doublesRegistration").validate();
+
+		$('#submitButton').click(function(){
+			$('#query').val('reportScore');
+			//validate form fields
+			var hasErrors = false;
+			var infoMissing = false;
+			$('form input[type="text"]').each(function(){
+				var currentValue = $(this).val();
+				var currentAttr = $(this).attr('id');
+				$(this).css("background-color","");
+				if (!currentValue || currentValue ==''){
+					if (!infoMissing && currentAttr.indexOf('captain')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player2')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player3')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player4')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}
+				}
+			});
+			$('form input[type="number"]').each(function(){
+				var currentValue = $(this).val();
+				var currentAttr = $(this).attr('id');
+				$(this).css("background-color","");
+				if (!currentValue || currentValue ==''){
+					if (!infoMissing && currentAttr.indexOf('captain')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!plainfoMissingyer2InfoMissing && currentAttr.indexOf('player2')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player3')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}
+					else if (!infoMissing && currentAttr.indexOf('player4')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}
+				}
+			});
+			$('form input[type="email"]').each(function(){
+				var currentValue = $(this).val();
+				var currentAttr = $(this).attr('id');
+				$(this).css("background-color","");
+				if (!currentValue || currentValue ==''){
+					if (!infoMissing && currentAttr.indexOf('captain')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player2')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}else if (!infoMissing && currentAttr.indexOf('player3')>-1){
+						$(this).css("background-color","red");
+						hasErrors = true;
+						infoMissing = true;
+					}
+				}
+			});
+			if (hasErrors && infoMissing){
+				alert('Some information missing for Captain or other Players');
+				return false;
+			}else if (hasErrors){
+				alert('Team Name is required');
+				return false;
+			}
+		});
+	});
+</script>
+<body>
+	<div>
+		<div data-role="page" data-content-theme="a" id="teamTennisRegistration" data-title="Registration for Season 2018">
+			<div data-role="header" data-content-theme="a"
+				data-add-back-btn="true">
+				<a href="#" data-rel="back" data-icon="arrow-l" data-theme="c">Back</a>
+				<h6 style="font-size:15px;">Registration Form</h6>
+			</div>
+			<div data-role="content" data-theme="a">
+				<form action="/teamTennisRegistration" id="teamTennisRegistration" method="post">
+					<fieldset data-role="fieldcontain">
+						<label for="teamName">Team Name:</label>
+						<input type="text" name="teamName" id="teamName" class="required" value=""/>
+					</fieldset>
+					<fieldset data-role="fieldcontain">
+						<label for="teamAvailability">Availability of your Team:</label>
+						<select name="teamAvailability" id="teamAvailability">
+							<option value="Available most times">Available most times</option>
+							<option value="Have business travel during most weekdays">Have business travel during most weekdays</option>
+							<option value="Can't play weekends">Can't play weekends</option>
+							<option value="Can play only on weekends">Can play only on weekends</option>
+						</select>
+						<label for="teamAvailability">*Will be useful to teams in your group to schedule game</label>
+					</fieldset>
+					<div class="ui-grid-solo">
+						<div class="ui-block-a"><button type="v" data-theme="a">Captain (Player1) Details</button></div>
+						<fieldset data-role="fieldcontain">
+							<label for="captainName">Name:</label>
+							<input type="text" name="captainName" id="captainName" class="required" value=""/>
+						</fieldset>
+						<fieldset data-role="fieldcontain">
+							<label for="captainEmailAddress">Email Address:</label>
+							<input type="email" name="captainEmailAddress" placeholder="example@company.com" class="required email" id="captainEmailAddress" value=""/>
+						</fieldset>
+						<fieldset data-role="fieldcontain">
+							<label for="captainPhoneNumber">Phone Number:</label>
+							<input type="number" name="captainPhoneNumber" required="required" placeholder="5555555555" id="captainPhoneNumber" class="required" value=""/>
+						</fieldset>
+						<fieldset data-role="fieldcontain">
+							<label for="captainRating">Rating (Self/USTA):</label>
+								<select name="captainRating" id="captainRating">
+									<option value="2.0">Beginner (2.0-2.5)</option>
+									<option value="3.0">Intermediate (3.0)</option>
+									<option value="3.25">Above Intermediate (3.25)</option>
+									<option value="3.5">Intermediate High(3.5)</option>
+									<option value="3.75">Intermediate Advanced(3.75)</option>
+									<option value="4.0">Advanced (4.0)</option>
+									<option value="4.5">Pro (4.5+)</option>
+								</select>
+						</fieldset>
+					</div>
+					<div class="ui-grid-solo">
+						<div class="ui-block-a"><button type="v" data-theme="a">Team Details</button></div>
+					</div>
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><button type="v" data-theme="a">Player2 Details</button></div>
+							</div>
+							<fieldset data-role="fieldcontain">
+								<label for="player2Name">Name:</label>
+								<input type="text" name="player2Name" id="player2Name" class="required" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player2EmailAddress">Email Address:</label>
+								<input type="email" name="player2EmailAddress" placeholder="example@company.com" class="required email" id="player2EmailAddress" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player2PhoneNumber">Phone Number:</label>
+								<input type="number" name="player2PhoneNumber" required="required" placeholder="5555555555" id="player2PhoneNumber" class="required" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player2Rating">Rating (Self/USTA):</label>
+									<select name="player2Rating" id="player2Rating">
+										<option value="2.0">Beginner (2.0-2.5)</option>
+										<option value="3.0">Intermediate (3.0)</option>
+										<option value="3.25">Intermediate High (3.25)</option>
+										<option value="3.5">Intermediate Advanced (3.5)</option>
+										<option value="3.75">High 3(3.75)</option>
+										<option value="4.0">Advanced (4.0)</option>
+										<option value="4.5">Pro (4.5+)</option>
+									</select>
+							</fieldset>
+						</div>
+						<div class="ui-block-b">
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><button type="v" data-theme="a">Player3 Details</button></div>
+							</div>
+							<fieldset data-role="fieldcontain">
+								<label for="player3Name">Name:</label>
+								<input type="text" name="player3Name" id="player3Name" class="required" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player3EmailAddress">Email Address:</label>
+								<input type="email" name="player3EmailAddress" placeholder="example@company.com" class="required email" id="player3EmailAddress" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player3PhoneNumber">Phone Number:</label>
+								<input type="number" name="player3PhoneNumber" required="required" placeholder="5555555555" id="player3PhoneNumber" class="required" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player3Rating">Rating (Self/USTA):</label>
+									<select name="player3Rating" id="player3Rating">
+										<option value="2.0">Beginner (2.0-2.5)</option>
+										<option value="3.0">Intermediate (3.0)</option>
+										<option value="3.25">Intermediate High (3.25)</option>
+										<option value="3.5">Intermediate Advanced (3.5)</option>
+										<option value="3.75">High 3(3.75)</option>
+										<option value="4.0">Advanced (4.0)</option>
+										<option value="4.5">Pro (4.5+)</option>
+									</select>
+							</fieldset>
+						</div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a"><button type="v" data-theme="a">Player4 Details</button></div>
+							<fieldset data-role="fieldcontain">
+								<label for="player4Name">Player4 Name:</label>
+								<input type="text" name="player4Name" id="player4Name" value=""/>
+							</fieldset>
+							<fieldset data-role="fieldcontain">
+								<label for="player4Rating">Rating (Self/USTA):</label>
+								<select name="player4Rating" id="player4Rating">
+									<option value="2.0">Beginner (2.0-2.5)</option>
+									<option value="3.0">Intermediate (3.0)</option>
+									<option value="3.5">Intermediate Advanced (3.5)</option>
+									<option value="4.0">Advanced (4.0)</option>
+									<option value="4.5">Pro (4.5+)</option>
+								</select>
+							</fieldset>
+						</div>
+					<input type="submit" data-theme="b" name="submitButton" id="submitButton" value="Next">
+					<div data-role="content" data-theme="a">
+						<span>*Payment option will be provided in next screen</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
