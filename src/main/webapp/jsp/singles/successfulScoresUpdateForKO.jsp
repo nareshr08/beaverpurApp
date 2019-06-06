@@ -23,14 +23,15 @@
 		<div data-role="content">
 			<p>Thank you for playing in our Singles Tournament. We emailed both players with the reported scores. To see whom you might play in next Round, click below link:</p>
 			<br/>
-			<c:choose>
+			<a href="/singlesKO">KO Round</a>
+			<%-- <c:choose>
       			<c:when test="${koType=='Major'}">
 				<a href="/koMajorForSingles">KO Round</a>
 		      	</c:when>
 				<c:otherwise>
 					<a href="/koMinorForSingles">KO Round</a>
 				</c:otherwise>
-			</c:choose>
+			</c:choose> --%>
 			
 		</div>
 	</div>

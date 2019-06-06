@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>KO Major Details for Singles</title>
+	<title>KO Details for Singles</title>
 	<meta charset="utf-8">
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +60,7 @@
 						<span style="color:red;font-weight:bold;">R32 game should be played between 05/20-05/22</span>
 					</c:otherwise>
 				</c:choose>
-				<form action="/koForSingles" method="POST">
+				<form action="/singlesKO" method="POST">
 					<label for="select-choice-0" class="select">Select KO Round:</label>
 					<select name="koRound" onchange="this.form.submit()">
 						<option value="R32" ${selectedRound == 'R64' ? 'selected="selected"' : ''}>Round64</option>
@@ -142,7 +142,7 @@
 				</div>
 			</div>
 			<div data-role="footer">
-				<span style="text-align:left;font-style:italic;font-size:10px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2018/singles-tournament/major-ko">Desktop version</a></span>
+				<span style="text-align:left;font-style:italic;font-size:10px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2019/singles-tournament/ko-league">Desktop version</a></span>
 			</div>
 		</div>
 	</div>

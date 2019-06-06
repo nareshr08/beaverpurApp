@@ -253,12 +253,12 @@ public class MailUtil {
 			}else{
 				msg.addRecipient(Message.RecipientType.TO,new InternetAddress(MailUtil.getEmailIdForPlayer(Constants.SINGLES_TOURNAMENT_FILE,player1Name,Constants.TournamentType.SINGLES), player1Name));
 				msg.addRecipient(Message.RecipientType.TO,new InternetAddress(MailUtil.getEmailIdForPlayer(Constants.SINGLES_TOURNAMENT_FILE,player2Name,Constants.TournamentType.SINGLES), player2Name));
-				msg.setSubject("Scores Updated for:"+koType+" "+koRound+" Singles Game between:"+player1Name+"vs"+player2Name);
-				messageBody = "<html><body>Hello Players: <br/>Your game scores have been updated with below details for:"+koType+" "+koRound+"<br/>";
+				//msg.setSubject("Scores Updated for:"+koType+" "+koRound+" Singles Game between:"+player1Name+"vs"+player2Name);
+				msg.setSubject("Scores Updated for:"+koRound+" Singles Game between:"+player1Name+"vs"+player2Name);
+				//messageBody = "<html><body>Hello Players: <br/>Your game scores have been updated with below details for:"+koType+" "+koRound+"<br/>";
+				messageBody = "<html><body>Hello Players: <br/>Your game scores have been updated with below details for:"+koRound+"<br/>";
 				messageBody += "<table border='1'><th>Player Name</th><th>Set1</th><th>Set2</th><th>Set3</th>";
 			}
-			
-			//msg.addRecipient(Message.RecipientType.TO,new InternetAddress(Constants.ORGANIZER_EMAIL, "Naresh"));
 			
 			messageBody += "<tr><td>"+scoresArray[0][0]+"</td><td style='text-align: center;'>"+scoresArray[0][1]+"</td><td style='text-align: center;'>"+scoresArray[0][2]+"</td><td style='text-align: center;'>"+scoresArray[0][3]+"</td></tr>";
 			messageBody += "<tr><td>"+scoresArray[1][0]+"</td><td style='text-align: center;'>"+scoresArray[1][1]+"</td><td style='text-align: center;'>"+scoresArray[1][2]+"</td><td style='text-align: center;'>"+scoresArray[1][3]+"</td></tr></table>";
@@ -268,7 +268,8 @@ public class MailUtil {
 				if (tournamentType.equals("Doubles")){
 					messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koRoundForDoubles?koType="+koType+"&koRound="+koRound+"\">KO Round</a>";
 				}else{
-					messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koMajorForSingles?koRound="+koRound+"\">KO Round</a>";
+					//messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koMajorForSingles?koRound="+koRound+"\">KO Round</a>";
+					messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/singlesKO?koRound="+koRound+"\">KO Round</a>";
 				}
 			}else if (koType.equals("Minor")){
 				if (tournamentType.equals("Doubles")){

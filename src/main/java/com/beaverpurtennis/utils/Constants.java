@@ -234,4 +234,20 @@ public class Constants {
 		}
 		return 3;
 	}
+	
+	public static String getQueryStringForSinglesKO (String round) {
+		String query = "?sq=groupname="+round+"&";
+		if (round.equals("R64")) {
+			query += "min-col=3&max-col=6&min-row=4&max-row=129";
+		} else if (round.equals("R32")) {
+			query += "min-col=13&max-col=16&min-row=6&max-row=127";
+		} else if (round.equals("R16")) {
+			query += "min-col=23&max-col=26&min-row=10&max-row=123";
+		} else if (round.equals("R8")) {
+			query += "min-col=33&max-col=36&min-row=18&max-row=115";
+		} else if (round.equals("R4")) {
+			query += "min-col=43&max-col=46&min-row=34&max-row=96";
+		}
+		return query;
+	}
 }

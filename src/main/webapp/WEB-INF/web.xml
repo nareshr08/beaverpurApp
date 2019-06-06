@@ -85,22 +85,33 @@
     	<url-pattern>/reportScore</url-pattern>
   	</servlet-mapping> 
   	
-  	<servlet>
+  	<!-- <servlet>
   		<servlet-name>singlesKO</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.singles.KOMajorForSinglesServlet</servlet-class>
   	</servlet>
   	<servlet-mapping>
   		<servlet-name>singlesKO</servlet-name>
     	<url-pattern>/singlesKO</url-pattern>
+  	</servlet-mapping> -->
+  	
+  	<servlet>
+  		<servlet-name>singlesKO</servlet-name>
+    	<servlet-class>com.beaverpurtennis.servlet.singles.KODetailsServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>singlesKO</servlet-name>
+    	<url-pattern>/singlesKO</url-pattern>
   	</servlet-mapping>
+  	
   	<servlet>
     	<servlet-name>reportScoreForKO</servlet-name>
-      	<servlet-class>com.beaverpurtennis.servlet.singles.SinglesKOServlet</servlet-class>
+      	<servlet-class>com.beaverpurtennis.servlet.singles.ReportScoreForKO</servlet-class>
   	</servlet>
   	<servlet-mapping>
     	<servlet-name>reportScoreForKO</servlet-name>
       	<url-pattern>/reportScoreForKO</url-pattern>
   	</servlet-mapping>
+  	
   	<!--
   	<servlet>
   		<servlet-name>koMajorForSingles</servlet-name>
