@@ -94,10 +94,10 @@ public class PayPalPaymentTransferServlet extends HttpServlet {
 			in.close();
 			//print result
 			//log.info(urlresponse.toString());
-			ListFeed list = SpreadSheetUtilites.getListFeed(Constants.SINGLES_REGISTRATION_FILE, 0);
-			//ListFeed list = SpreadSheetUtilites.getListFeed(Constants.DOUBLES_REGISTRATION_FILE, 0);
+			//ListFeed list = SpreadSheetUtilites.getListFeed(Constants.SINGLES_REGISTRATION_FILE, 0);
+			ListFeed list = SpreadSheetUtilites.getListFeed(Constants.DOUBLES_REGISTRATION_FILE, 0);
 			//ListFeed list = SpreadSheetUtilites.getListFeed(Constants.TEAMTENNIS_REGISTRATION_FILE, 0);
-            boolean status = SpreadSheetUtilites.updatePaymentStatus(list,responseMap, Constants.TournamentType.SINGLES);
+            boolean status = SpreadSheetUtilites.updatePaymentStatus(list,responseMap, Constants.TournamentType.DOUBLES);
             if (status){
             	log.info("Updated our record successfully");
             	request.getRequestDispatcher("/html/success.html").forward(request, response);

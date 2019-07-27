@@ -32,7 +32,7 @@
 						<option value="Red" ${selectedGroup=='Red'? 'selected="selected"' : ''}>Red</option>
 						<option value="Blue" ${selectedGroup=='Blue'? 'selected="selected"' : ''}>Blue</option>
 						<option value="Green" ${selectedGroup=='Green'? 'selected="selected"' : ''}>Green</option>
-						<option value="Yellow" ${selectedGroup=='Yellow'? 'selected="selected"' : ''}>Yellow</option>
+						<%-- <option value="Yellow" ${selectedGroup=='Yellow'? 'selected="selected"' : ''}>Yellow</option> --%>
 					</select>
 				</form>
 				<c:forEach var="teamsGroup" items="${teamsList}">
@@ -69,7 +69,7 @@
 				</c:forEach>
 			</div>
 			<div data-role="footer">
-				<span style="text-align:left;font-style:italic;font-size:12px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2018/doubles-tournament/standings">Desktop version</a></span>
+				<span style="text-align:left;font-style:italic;font-size:12px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2019/doubles-tournament/standings">Desktop version</a></span>
 			</div>
 		</div>
 	</div>

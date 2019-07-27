@@ -58,10 +58,9 @@
 					</c:otherwise>
 				</c:choose>
 				<form action="/koRoundForDoubles" method="POST">
-					<input type="hidden" name="koType" id="koType" value="Major"/>
 					<label for="select-choice-0" class="select">Select KO Round:</label>
 					<select name="koRound" onchange="this.form.submit()">
-	    				<!-- <option value="R32" ${selectedRound == 'R32' ? 'selected="selected"' : ''}>Round32</option> -->
+	    				<option value="R32" ${selectedRound == 'R32' ? 'selected="selected"' : ''}>Round32</option>
 	    				<option value="R16" ${selectedRound == 'R16' ? 'selected="selected"' : ''}>Pre-QuarterFinals</option>
 	    				<option value="R8" ${selectedRound == 'R8' ? 'selected="selected"' : ''}>Quater Finals</option>
 	    				<option value="R4" ${selectedRound == 'R4' ? 'selected="selected"' : ''}>Semis</option>
@@ -133,7 +132,7 @@
 				%>
 			</div>
 			<div data-role="footer">
-				<span style="text-align:left;font-style:italic;font-size:10px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2017/doubles-tournament/major-league">Desktop version</a></span>
+				<span style="text-align:left;font-style:italic;font-size:10px;">For more details please visit <a href="https://sites.google.com/site/beaverpuropentennis/home/season-2019/doubles-tournament/ko-round">Desktop version</a></span>
 			</div>
 		</div>
 	</div>

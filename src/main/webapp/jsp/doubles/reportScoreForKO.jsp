@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Submit scores for Doubles Game</title>
+	<title>Submit scores for Doubles KO Game</title>
 	<meta charset="utf-8">
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,22 +13,24 @@
 	<script src="../javascript/jquery/jquery.mobile-1.4.0.min.js"></script>
 </head>
 <script type="text/javascript">
-//style="display:none"
 	$(document).ready(function() {
-		//alert('are we trying to load??');
 		$('#formSubmitDiv').hide();
 		$('#setScores').hide();
 		$('#team2Info').hide();
 		$('#team1Info').hide();
-		$('#groupName').change(function(event) {
+		$('#koRound').change(function(event) {
 			$('#team1Info').hide();
+			$('#team2Info').hide();
 			$('#formSubmitDiv').hide();
 			$('#setScores').hide();
-			$('#team2Info').hide();
-	        var $groupName=$("select#groupName").val();
-		 	$.get('/reportScoreForDoubles',{query:'getTeams',groupName:$groupName},function(responseJson) {
-	        	var $select = $('#team1');                           
-	            $select.find('option').remove();
+	        var $koRound=$("select#koRound").val();
+		 	$.get('/reportScoreForDoublesKO',{koRound:$koRound},function(responseJson) {
+		 		if (!responseJson || Object.getOwnPropertyNames(responseJson).length === 0){
+		 			alert('Reporting not avaliable for the selected Round');
+		 			return;
+		 		}
+	        	var $select = $('#team1');
+	        	$select.find('option').remove();
 	            $('<option>').val('NA').text('').appendTo($select);
 	            $.each(responseJson, function(key, value) {               
 	            	$('<option>').val(key).text(value).appendTo($select);      
@@ -39,28 +41,15 @@
 	    });
 		$('#team1').change(function (event){
 			var $team1=$("select#team1").val();
-			var $groupName=$("select#groupName").val();
 			if ($team1 =='NA'){
-				alert('Please select a Team');
+				alert('Please select a team');
 				return;
 			}
-			$.get('/reportScoreForDoubles',{query:'getTeam2List',groupName:$groupName,selectedTeam1:$team1},function(responseJson) {
-		        var $select = $('#team2');                           
-		        $select.find('option').remove();
-		        $('<option>').val('NA').text('').appendTo($select);
-		        $.each(responseJson, function(key, value) {              
-		        $('<option>').val(key).text(value).appendTo($select);      
-		        });
-		        $select.selectmenu('refresh');
-				$('#team2Info').show();
-			});
-		});
-		$('#team2').change(function (event){
-			var $team2=$("select#team2").val();
-			if ($team2 =='NA'){
-				alert('Please select a Team');
-				return;
-			}
+			var res = $team1.split(";");
+        	var $team2 = $('#team2');
+        	$team2.val(res[1]);
+        	$team2.attr("readonly","readonly") 
+			$('#team2Info').show();
 			$('#setScores').show();
 			$('#formSubmitDiv').show();
 		});
@@ -71,37 +60,38 @@
 </script>
 <body>
 	<div>
-		<div data-role="page" data-content-theme="a" id="reportScoresForDoubles" data-title="Report scores for Doubles 2019">
+		<div data-role="page" data-content-theme="a" id="reportScoreForDoublesKO" data-title="Report scores for KO Doubles 2019">
 			<div data-role="header" data-content-theme="a" data-add-back-btn="true">
 				<a href="#" data-rel="back" data-icon="arrow-l" data-theme="c">Back</a>
 				<h3>Score Reporter</h3>
 			</div>
 			<div data-role="content">
-				<form action="/reportScoreForDoubles" method="POST" id="reportScoreForm">
+				<form action="/reportScoreForDoublesKO" method="POST" id="reportScoreForm">
 					<input type="hidden" id="query" name="query" value=""/>
-					<label for="group" class="select">Select Group:</label>
-					<select name="groupName" id="groupName">
-						<option value="NA">--</option>
-	    				<option value="Red" ${selectedGroup=='Red'? 'selected="selected"' : ''}>Red</option>
-	    				<option value="Blue" ${selectedGroup=='Red'? 'selected="selected"' : ''}>Blue</option>
-	    				<option value="Green" ${selectedGroup=='Red'? 'selected="selected"' : ''}>Green</option>
-	    				<%-- <option value="Yellow" ${selectedGroup=='Red'? 'selected="selected"' : ''}>Yellow</option> --%>
-					</select>
+					
+					<div id="koRoundDiv">
+						<label for="koRoundText" class="select">Select KO Round:</label>
+						<select name="koRound" id="koRound">
+							<option value="NA">--</option>
+		    				<option value="R32" ${selectedRound == 'R32' ? 'selected="selected"' : ''}>Round32</option>
+		    				<option value="R16" ${selectedRound == 'R16' ? 'selected="selected"' : ''}>Pre-QuarterFinals</option>
+		    				<option value="R8" ${selectedRound == 'R8' ? 'selected="selected"' : ''}>Quater Finals</option>
+		    				<option value="R4" ${selectedRound == 'R4' ? 'selected="selected"' : ''}>Semis</option>
+						</select>
+					</div>
 					<div id="team1Info">
-						<label for="team1" class="select">Team1:</label>
+						<label for="team1" class="select">team1:</label>
 						<select name="team1" id="team1">
 							<option value="NA"></option>
 						</select>
 					</div>
 					<div id="team2Info">
-						<label for="team2" class="select">Team2:</label>
-						<select name="team2" id="team2">
-							<option value="NA"></option>
-						</select>
+						<label for="team2" class="select">team2:</label>
+						<input type="text" name="team2" id="team2" value=""/>
 					</div>
 					<div id="setScores" data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
-							<legend>Team1 Scores:</legend>
+							<legend>team1 Scores:</legend>
 							<label for="team1set1score">Set1</label>
 							<select name="team1set1score" id="team1set1score">
 								<c:forEach var="counter" begin="0" end="7">
@@ -123,7 +113,7 @@
 						</fieldset>
 						<br/>
 						<fieldset data-role="controlgroup" data-type="horizontal">
-							<legend>Team2 Scores:</legend>
+							<legend>team2 Scores:</legend>
 							<label for="team2set1score">Set1</label>
 							<select name="team2set1score" id="team2set1score">
 								<c:forEach var="counter" begin="0" end="7">

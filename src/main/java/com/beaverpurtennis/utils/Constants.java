@@ -22,12 +22,13 @@ public class Constants {
 	public static Map<String, String> doublesGroups = new LinkedHashMap<String,String>();
 	public static Map<String, String> teamTennisGroups = new LinkedHashMap<String,String>();
 	public static class WorkSheetIndexes {
-		public static final int GROUPS 		= 1;
-		public static final int MATCHSTATS 	= 4;
-		public static final int STANDINGS 	= 5;
-		public static final int KOROUND	= 6;
-		public static final int MINORKO	= 7;
-		public static final int KOR64	= 8;
+		public static final int GROUPS        = 1;
+		public static final int MATCHSTATS    = 4;
+		public static final int STANDINGS     = 5;
+		public static final int KOROUND	      = 6;
+		public static final int MINORKO	      = 7;
+		public static final int KOR64	      = 8;
+		public static final int DOUBLESKO     = 8;
 	}
 	
 	public static class TournamentType{
@@ -38,8 +39,10 @@ public class Constants {
 	
 	static {
 		doublesGroups.put("All", "All");
-		doublesGroups.put("Red", "Red");doublesGroups.put("Blue", "Blue");
-		doublesGroups.put("Green", "Green");doublesGroups.put("Yellow", "Yellow");
+		doublesGroups.put("Red", "Red");
+		doublesGroups.put("Blue", "Blue");
+		doublesGroups.put("Green", "Green");
+		//doublesGroups.put("Yellow", "Yellow");
 	}
 	static {
 		groups.put("All", "All");
@@ -250,4 +253,18 @@ public class Constants {
 		}
 		return query;
 	}
+
+    public static String getQueryStringForDoublesKO(String round) {
+        String query = "?sq=groupname=" + round + "&";
+        if (round.equals("R32")) {
+            query += "min-col=3&max-col=6&min-row=4&max-row=65";
+        } else if (round.equals("R16")) {
+            query += "min-col=13&max-col=16&min-row=6&max-row=63";
+        } else if (round.equals("R8")) {
+            query += "min-col=23&max-col=26&min-row=10&max-row=59";
+        } else if (round.equals("R4")) {
+            query += "min-col=33&max-col=36&min-row=18&max-row=51";
+        } 
+        return query;
+    }
 }

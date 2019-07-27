@@ -35,13 +35,13 @@ public class MailUtil {
 				logger.severe("Invalid Player Name");
 				return;
 			}
-			String subject ="Registered for Singles Tournament 2019";
-			//String subject = "Registered for Doubles Tournament 2019";
+			//String subject ="Registered for Singles Tournament 2019";
+			String subject = "Registered for Doubles Tournament 2019";
 			//String subject = "Registered for Team Tennis Tournament 2019";
 			String messageBody = "<html><body>Hello "+playerName+"<br/>";
-			messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2019 Singles tournament.<br/>To view the list of players registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/playersList\">Registered Players</a>";
-			//messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2018 Doubles tournament.<br/>To view the list of teams registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/getRegisteredTeamsList\">Registered Teams</a>";
-			//messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2018 Team Tennis tournament.<br/>To view the list of teams registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/getRegisteredTeamsList\">Registered Teams</a>";
+			//messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2019 Singles tournament.<br/>To view the list of players registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/playersList\">Registered Players</a>";
+			messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2019 Doubles tournament.<br/>To view the list of teams registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/getRegisteredTeamsList\">Registered Teams</a>";
+			//messageBody += "Thank you!!We have received your payment and this email is to confirm your participation in 2019 Team Tennis tournament.<br/>To view the list of teams registered for the event, click link:<a href=\"http://beaverpurtennis.appspot.com/getRegisteredTeamsList\">Registered Teams</a>";
 			messageBody += "<br/>Thanks<br/>Beaverpur Organizers</body></html>";
 
 			//javax mail service--commenting out to try sendgrid email
@@ -242,7 +242,8 @@ public class MailUtil {
 				msg.addRecipient(Message.RecipientType.TO,new InternetAddress(team1Emails.split(";")[1],team1Emails.split(";")[1]));
 				msg.addRecipient(Message.RecipientType.TO,new InternetAddress(team2Emails.split(";")[0],team2Emails.split(";")[0]));
 				msg.addRecipient(Message.RecipientType.TO,new InternetAddress(team2Emails.split(";")[1],team2Emails.split(";")[1]));
-				msg.setSubject("Scores Updated for:"+koType+" "+koRound+" Doubles Game between:"+player1Name+"vs"+player2Name);
+				//msg.setSubject("Scores Updated for:"+koType+" "+koRound+" Doubles Game between:"+player1Name+"vs"+player2Name);
+				msg.setSubject("Scores Updated for:"+koRound+" between:"+player1Name+"vs"+player2Name);
 				messageBody = "<html><body>Hello Teams: <br/>Your game scores have been updated with below details for:"+koRound+"<br/>";
 				messageBody += "<table border='1'><th>Team Name</th><th>Set1</th><th>Set2</th><th>Set3</th>";
 			}else if (tournamentType.equals("TeamTennis")){
@@ -263,10 +264,11 @@ public class MailUtil {
 			messageBody += "<tr><td>"+scoresArray[0][0]+"</td><td style='text-align: center;'>"+scoresArray[0][1]+"</td><td style='text-align: center;'>"+scoresArray[0][2]+"</td><td style='text-align: center;'>"+scoresArray[0][3]+"</td></tr>";
 			messageBody += "<tr><td>"+scoresArray[1][0]+"</td><td style='text-align: center;'>"+scoresArray[1][1]+"</td><td style='text-align: center;'>"+scoresArray[1][2]+"</td><td style='text-align: center;'>"+scoresArray[1][3]+"</td></tr></table>";
 			messageBody += "<br/>Please review and let us know if anything needs to be updated.<br/>";
-			messageBody += "\nTo review the standings in your group, click below link:<br/>";
+			//messageBody += "\nTo review the standings in your group, click below link:<br/>";
 			if (koType.equals("Major")){
 				if (tournamentType.equals("Doubles")){
-					messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koRoundForDoubles?koType="+koType+"&koRound="+koRound+"\">KO Round</a>";
+				    messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koRoundForDoubles?koRound="+koRound+"\">KO Round</a>";
+					//messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koRoundForDoubles?koType="+koType+"&koRound="+koRound+"\">KO Round</a>";
 				}else{
 					//messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/koMajorForSingles?koRound="+koRound+"\">KO Round</a>";
 					messageBody += "<a href=\"http://www.beaverpurtennis.appspot.com/singlesKO?koRound="+koRound+"\">KO Round</a>";

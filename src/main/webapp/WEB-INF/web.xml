@@ -58,7 +58,6 @@
 		<servlet-name>retrievePlayersList</servlet-name>
     	<url-pattern>/playersList</url-pattern>
   	</servlet-mapping> 
--->
  	<servlet>
   		<servlet-name>singlesGroupRoundDetails</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.singles.SinglesGroupRoundDetailsServlet</servlet-class>
@@ -85,14 +84,14 @@
     	<url-pattern>/reportScore</url-pattern>
   	</servlet-mapping> 
   	
-  	<!-- <servlet>
+  	<servlet>
   		<servlet-name>singlesKO</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.singles.KOMajorForSinglesServlet</servlet-class>
   	</servlet>
   	<servlet-mapping>
   		<servlet-name>singlesKO</servlet-name>
     	<url-pattern>/singlesKO</url-pattern>
-  	</servlet-mapping> -->
+  	</servlet-mapping>
   	
   	<servlet>
   		<servlet-name>singlesKO</servlet-name>
@@ -112,7 +111,6 @@
       	<url-pattern>/reportScoreForKO</url-pattern>
   	</servlet-mapping>
   	
-  	<!--
   	<servlet>
   		<servlet-name>koMajorForSingles</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.singles.KOMajorForSinglesServlet</servlet-class>
@@ -143,8 +141,9 @@
   <!-- End of Singles tournament configuration -->
  
   <!-- Below section would have list of doubles tournament controllers -->
-
-<!-- 	<servlet>
+	<!-- 
+	
+	<servlet>
     	<servlet-name>doublesRegistration</servlet-name>
       	<servlet-class>com.beaverpurtennis.servlet.doubles.DoublesRegistrationServlet</servlet-class>
   	</servlet>
@@ -177,6 +176,7 @@
   		<servlet-name>getRegisteredTeamsList</servlet-name>
     	<url-pattern>/getRegisteredTeamsList</url-pattern>
   	</servlet-mapping>
+  	 -->
  	<servlet>
   		<servlet-name>doublesGroupRoundDetails</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.doubles.DoublesGroupRoundDetailsServlet</servlet-class>
@@ -194,9 +194,8 @@
   		<servlet-name>doublesStandings</servlet-name>
     	<url-pattern>/doublesStandings</url-pattern>
   	</servlet-mapping>
- -->  
- <!-- 
-   	<servlet>
+  
+<!--    	<servlet>
   		<servlet-name>reportScoreForDoubles</servlet-name>
     	<servlet-class>com.beaverpurtennis.servlet.doubles.ReportScoreForDoubles</servlet-class>
   	</servlet>
@@ -204,9 +203,10 @@
   		<servlet-name>reportScoreForDoubles</servlet-name>
     	<url-pattern>/reportScoreForDoubles</url-pattern>
   	</servlet-mapping>
+ --> 
   	<servlet>
   		<servlet-name>koRoundForDoubles</servlet-name>
-    	<servlet-class>com.beaverpurtennis.servlet.doubles.KORoundForDoublesServlet</servlet-class>
+    	<servlet-class>com.beaverpurtennis.servlet.doubles.KORoundForDoubles</servlet-class>
   	</servlet>
   	<servlet-mapping>
   		<servlet-name>koRoundForDoubles</servlet-name>
@@ -215,13 +215,13 @@
  
 	<servlet>
     	<servlet-name>reportScoreForDoublesKO</servlet-name>
-      	<servlet-class>com.beaverpurtennis.servlet.doubles.ReportScoreForDoublesKOServlet</servlet-class>
+      	<servlet-class>com.beaverpurtennis.servlet.doubles.ReportScoreForDoublesKO</servlet-class>
   	</servlet>
   	<servlet-mapping>
     	<servlet-name>reportScoreForDoublesKO</servlet-name>
       	<url-pattern>/reportScoreForDoublesKO</url-pattern>
   	</servlet-mapping>
--->
+
   <!-- End of doubles tournament controllers -->
 
   <!-- Team Tennis tournament related controllers -->

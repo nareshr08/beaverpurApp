@@ -20,7 +20,7 @@
 	});
 </script>
 <body>
-	<div data-role="page" data-content-theme="a" id="doublesPayment" data-title="Payment for Season 2017">
+	<div data-role="page" data-content-theme="a" id="doublesPayment" data-title="Payment for Season 2019">
 		<div data-role="header" data-content-theme="a"
 			data-add-back-btn="true">
 			<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
@@ -28,7 +28,7 @@
 		</div>
 		<div data-role="content">
 			<div data-role="fieldcontain">
-				<p> To confirm your registration, for 2018 Doubles  tournament, you need to make a payment. Please select "Pay Now" below to complete the process. 
+				<p> To confirm your registration, for 2019 Doubles  tournament, you need to make a payment. Please select "Pay Now" below to complete the process. 
 				</p>
 			</div>
 			<div>

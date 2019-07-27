@@ -644,11 +644,11 @@ public class SpreadSheetUtilites {
 				if (tag.equalsIgnoreCase("playername") || tag.equalsIgnoreCase("teamname") || tag.equalsIgnoreCase("captainname") || tag.equalsIgnoreCase("emailaddress") || tag.equalsIgnoreCase("captainemailaddress")){
 					if (valueinCurrentRow != null && valueinCurrentRow.equalsIgnoreCase(customValue)){
 						//for singles
-						emailTo = row.getCustomElements().getValue("emailaddress");
-						playerName = row.getCustomElements().getValue("playername");
+						//emailTo = row.getCustomElements().getValue("emailaddress");
+						//playerName = row.getCustomElements().getValue("playername");
 						//for doubles
-						//emailTo = row.getCustomElements().getValue("player1email")+";"+row.getCustomElements().getValue("player2email");//get the registeree's email address, to whom we should send instead of payer
-						//playerName = row.getCustomElements().getValue("teamname");
+						emailTo = row.getCustomElements().getValue("player1email")+";"+row.getCustomElements().getValue("player2email");//get the registeree's email address, to whom we should send instead of payer
+						playerName = row.getCustomElements().getValue("teamname");
 						
 						//for team tennis
 						//emailTo = row.getCustomElements().getValue("captainEmailAddress");//email only to captain
